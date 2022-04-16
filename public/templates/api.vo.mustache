@@ -1,0 +1,10 @@
+import { ApiProperty, SwaggerVo } from '@vodyani/swagger';
+
+@SwaggerVo
+export class {{ upperName }}Vo {
+  @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
+  public id: number;
+
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  public name: string;
+}

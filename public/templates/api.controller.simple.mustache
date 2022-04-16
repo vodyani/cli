@@ -1,0 +1,15 @@
+import { ApiTags } from '@nestjs/swagger';
+import { Controller, Get } from '@nestjs/common';
+
+import { ApiResponseVo } from '@/core/decorator';
+
+@ApiTags('{{ name }}')
+@Controller('{{ name }}')
+export class {{ upperName }}Controller {
+  @Get()
+  @ApiResponseVo()
+  public async find() {
+    const result = await this.service.get();
+    return result;
+  }
+}

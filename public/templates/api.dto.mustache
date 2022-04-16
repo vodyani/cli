@@ -1,0 +1,43 @@
+import { ApiProperty } from '@vodyani/swagger';
+
+import { PaginationQueryDto } from '@/core/dto';
+
+export class {{ upperName }}Dto {
+  @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
+  public id: number;
+
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  public name: string;
+}
+
+export class Find{{ upperName }}Dto {
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  public id?: number;
+
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  public name?: string;
+}
+
+export class Create{{ upperName }}Dto {
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  public id?: number;
+
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  public name: string;
+}
+
+export class Update{{ upperName }}Dto {
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  public id?: number;
+
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  public name?: string;
+}
+
+export class Pagination{{ upperName }}Dto extends PaginationQueryDto {
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  public id?: number;
+
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  public name?: string;
+}

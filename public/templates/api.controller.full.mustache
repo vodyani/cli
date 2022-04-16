@@ -1,0 +1,68 @@
+import { ApiTags, ApiOperation } from '@vodyani/swagger';
+import { getDefaultNumber, ParamValidate, Required } from '@vodyani/core';
+import { Controller, Get, Query, Post, HttpCode, Body, Param, Delete, Put } from '@nestjs/common';
+
+import { {{ upperName }}Vo } from './vo';
+import { Create{{ upperName }}Dto, Find{{ upperName }}Dto, Pagination{{ upperName }}Dto, Update{{ upperName }}Dto } from './dto';
+
+import { HTTP_STATUS } from '@/core/common';
+import { ResponseBodyVo } from '@/core/vo';
+import { ApiResponseVo, ApiArrayResponseVo, ApiPaginationResponseVo } from '@/core/decorator';
+
+@ApiTags('{{ name }} controller')
+@Controller('{{ name }}')
+export class {{ upperName }}Controller {
+  @Get('/find')
+  @ApiOperation({ summary: 'find' })
+  @ApiResponseVo({{ upperName }}Vo)
+  public async findOne(@Query() dto: Find{{ upperName }}Dto): Promise<{{ upperName }}Vo> {
+    const result = await this.service.getOne(dto);
+    return result;
+  }
+
+  @Get('/batch/find')
+  @ApiOperation({ summary: 'batch find' })
+  @ApiArrayResponseVo({{ upperName }}Vo)
+  public async findAll(@Query() dto: Find{{ upperName }}Dto): Promise<{{ upperName }}Vo[]> {
+    const result = await this.service.getAll(dto);
+    return result;
+  }
+
+  @Get('/pagination')
+  @ApiOperation({ summary: 'pagination' })
+  @ApiPaginationResponseVo({{ upperName }}Vo)
+  public async pagination(@Query() dto: Pagination{{ upperName }}Dto): Promise<ResponseBodyVo<{{ upperName }}Vo>> {
+    const result = await this.service.pagination(dto);
+    return result;
+  }
+
+  @Post('/create')
+  @HttpCode(HTTP_STATUS.SUCCESS)
+  @ApiOperation({ summary: 'create' })
+  @ApiResponseVo({{ upperName }}Vo)
+  public async create(@Body() dto: Create{{ upperName }}Dto): Promise<{{ upperName }}Vo> {
+    const result = await this.service.create(dto);
+    return result;
+  }
+
+  @Put(':id')
+  @ParamValidate()
+  @ApiOperation({ summary: 'update' })
+  @ApiResponseVo({{ upperName }}Vo)
+  public async update(
+    @Required() @Param('id') id: string,
+    @Body() dto: Update{{ upperName }}Dto,
+  ): Promise<void> {
+    const result = await this.service.update(getDefaultNumber(id), dto);
+    return result;
+  }
+
+  @Delete(':id')
+  @ParamValidate()
+  @ApiOperation({ summary: 'delete' })
+  @ApiResponseVo()
+  public async delete(@Required() @Param('id') id: string) {
+    const result = await this.service.delete(getDefaultNumber(id));
+    return result;
+  }
+}
