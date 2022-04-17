@@ -23,6 +23,7 @@
     "package.json",
     "README.MD",
     "LICENSE",
+    "public",
     "dist"
   ],
   "main": "dist/index.js",
