@@ -37,10 +37,10 @@
     "build": "rm -rf dist && tsc",
     "test": "ts-node ./index.ts",
     "test:coverage": "jest --coverage",
-    "lint": "eslint ./src ./test && tsc",
+    "lint": "eslint ./src && tsc",
     "lint:fix": "eslint --fix --ext .ts src/ test/",
-    "lint:html-report": "eslint ./src ./test -f html -o eslint-report.html",
-    "lint:json-report": "eslint ./src ./test -f json -o eslint-report.json"
+    "lint:html-report": "eslint ./src -f html -o eslint-report.html",
+    "lint:json-report": "eslint ./src -f json -o eslint-report.json"
   },
   "commitlint": {
     "extends": [
