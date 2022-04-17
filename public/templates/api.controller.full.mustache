@@ -1,5 +1,5 @@
 import { ApiTags, ApiOperation } from '@vodyani/swagger';
-import { getDefaultNumber, ParamValidate, Required } from '@vodyani/core';
+import { getDefaultNumber, ParamCameCase, ParamValidate, Required } from '@vodyani/core';
 import { Controller, Get, Query, Post, HttpCode, Body, Param, Delete, Put } from '@nestjs/common';
 
 import { {{ upperName }}Vo } from './vo';
@@ -13,6 +13,7 @@ import { ApiResponseVo, ApiArrayResponseVo, ApiPaginationResponseVo } from '@/co
 @Controller('{{ name }}')
 export class {{ upperName }}Controller {
   @Get('/find')
+  @ParamCameCase
   @ApiOperation({ summary: 'find' })
   @ApiResponseVo({{ upperName }}Vo)
   public async findOne(@Query() dto: Find{{ upperName }}Dto): Promise<{{ upperName }}Vo> {
@@ -21,6 +22,7 @@ export class {{ upperName }}Controller {
   }
 
   @Get('/batch/find')
+  @ParamCameCase
   @ApiOperation({ summary: 'batch find' })
   @ApiArrayResponseVo({{ upperName }}Vo)
   public async findAll(@Query() dto: Find{{ upperName }}Dto): Promise<{{ upperName }}Vo[]> {
@@ -29,6 +31,7 @@ export class {{ upperName }}Controller {
   }
 
   @Get('/pagination')
+  @ParamCameCase
   @ApiOperation({ summary: 'pagination' })
   @ApiPaginationResponseVo({{ upperName }}Vo)
   public async pagination(@Query() dto: Pagination{{ upperName }}Dto): Promise<ResponseBodyVo<{{ upperName }}Vo>> {
@@ -37,6 +40,7 @@ export class {{ upperName }}Controller {
   }
 
   @Post('/create')
+  @ParamCameCase
   @HttpCode(HTTP_STATUS.SUCCESS)
   @ApiOperation({ summary: 'create' })
   @ApiResponseVo({{ upperName }}Vo)
@@ -46,6 +50,7 @@ export class {{ upperName }}Controller {
   }
 
   @Put(':id')
+  @ParamCameCase
   @ParamValidate()
   @ApiOperation({ summary: 'update' })
   @ApiResponseVo({{ upperName }}Vo)
