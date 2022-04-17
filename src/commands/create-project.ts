@@ -25,10 +25,6 @@ export class CreateProjectHandler {
     if (!existsSync(`./${name}`)) {
       shell.exec(`git clone -b ${vodyaniVersion} ${CreateProjectHandler.docs} ${name}`);
 
-      if (existsSync(`${name}/.git`)) {
-        shell.exec(`rm -rf ${name}/.git`);
-      }
-
       const { isAllow } = await Input.getAnswer([{
         type: 'list',
         message: 'Do you need auto install all?',
