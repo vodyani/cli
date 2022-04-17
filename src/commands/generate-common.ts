@@ -4,6 +4,19 @@ import { Input, Logger } from '../base';
 import { shell, commonFiles } from '../common';
 
 export class CommonGenerator {
+  public static async select() {
+    const { name } = await Input.getAnswer([{
+      message: 'Which target do you want to create?',
+      name: 'name',
+      default: 'interface',
+      type: 'list',
+      choices: commonFiles,
+    }]);
+
+
+    writeFileSync(`${name}.ts`, '');
+  }
+
   public static async build(name: string) {
     const path = `./${name}/common`;
 

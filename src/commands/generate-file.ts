@@ -8,6 +8,7 @@ import { templatePath } from '../common';
 
 import { ApiGenerator } from './generate-api';
 import { DomainGenerator } from './generate-domain';
+import { CommonGenerator } from './generate-common';
 
 export class FileGenerator {
   public static async build() {
@@ -15,11 +16,12 @@ export class FileGenerator {
       {
         message: 'Which target do you want to create?',
         name: 'target',
-        default: 'default',
+        default: 'api',
         type: 'list',
         choices: [
-          'default',
           'api',
+          'common',
+          'default',
           'domain',
           'test',
         ],
@@ -35,6 +37,7 @@ export class FileGenerator {
     Logger.exec(`Generate ${name} ${target} ...`);
 
     if (target === 'api') await FileGenerator.selectApi(name);
+    if (target === 'common') await CommonGenerator.select();
     if (target === 'domain') await FileGenerator.selectDomain(name);
     if (target === 'default') await FileGenerator.selectDefault(name);
     if (target === 'test') FileGenerator.write('test', `${name}.spec`);
@@ -46,13 +49,13 @@ export class FileGenerator {
     const { type } = await Input.getAnswer([{
       message: 'Which type do you want to create?',
       name: 'type',
-      default: 'provider',
+      default: 'controller',
       type: 'list',
       choices: [
         'controller',
         'consumer',
-        'module',
         'dto',
+        'module',
         'vo',
       ],
     }]);
@@ -68,15 +71,15 @@ export class FileGenerator {
     const { type } = await Input.getAnswer([{
       message: 'Which type do you want to create?',
       name: 'type',
-      default: 'service',
+      default: 'do',
       type: 'list',
       choices: [
-        'service',
-        'manager',
-        'repository',
-        'provider',
-        'module',
         'do',
+        'manager',
+        'module',
+        'provider',
+        'repository',
+        'service',
       ],
     }]);
 
@@ -92,14 +95,16 @@ export class FileGenerator {
     const { type } = await Input.getAnswer([{
       message: 'Which type do you want to create?',
       name: 'type',
-      default: 'provider',
+      default: 'filter',
       type: 'list',
       choices: [
-        'provider',
-        'module',
-        'interceptor',
         'filter',
+        'decorator',
         'guard',
+        'interceptor',
+        'method',
+        'module',
+        'provider',
         'pipe',
       ],
     }]);
@@ -109,6 +114,8 @@ export class FileGenerator {
     if (type === 'pipe') FileGenerator.write('file.pipe', name, `${name}-pipe`);
     if (type === 'guard') FileGenerator.write('file.guard', name, `${name}-guard`);
     if (type === 'filter') FileGenerator.write('file.filter', name, `${name}-filter`);
+    if (type === 'method') FileGenerator.write('file.method', name, `${name}-method`, false);
+    if (type === 'decorator') FileGenerator.write('file.decorator', name, `${name}-decorator`);
     if (type === 'interceptor') FileGenerator.write('file.interceptor', name, `${name}-interceptor`);
   }
 
@@ -132,8 +139,9 @@ export class FileGenerator {
     mustacheName: string,
     fileName: string,
     filePath?: string,
+    isUpperFirst = true,
   ) {
-    const upperName = upperFirst(camelCase(fileName));
+    const upperName = isUpperFirst ? upperFirst(camelCase(fileName)) : camelCase(fileName);
     const mustachePath = `${templatePath}/${mustacheName}.mustache`;
     const mustacheData = readFileSync(mustachePath, 'utf8');
 

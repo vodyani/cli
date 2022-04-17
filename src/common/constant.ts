@@ -7,7 +7,6 @@ export const commonFiles = [
   'constant',
   'declare',
   'enum',
-  'index',
   'interface',
   'type',
 ];

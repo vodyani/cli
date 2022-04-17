@@ -41,23 +41,23 @@ export class Launcher {
     program
       .command('new')
       .usage('[command]')
-      .description(`🚀 ${color.cyan('Create vodyani project.')}`)
+      .description(`🚀 ${color.cyan('Create project.')}`)
       .action(async () => CreateProjectHandler.download(this.cliVersion));
 
     program
-      .command('a')
+      .command('api')
       .usage('[command]')
       .description(`🔌 ${color.green('Generate api module.')}`)
       .action(async () => ApiGenerator.build());
 
     program
-      .command('d')
+      .command('domain')
       .usage('[command]')
       .description(`🌏 ${color.green('Generate domain module.')}`)
       .action(async () => DomainGenerator.build());
 
     program
-      .command('f')
+      .command('file')
       .usage('[command]')
       .description(`🏭 ${color.green('Generate file on demand.')}`)
       .action(async () => FileGenerator.build());

@@ -1,0 +1,47 @@
+import { BasePromise } from '@vodyani/core';
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+
+// controller decorator
+export const User = createParamDecorator((data: string, ctx: ExecutionContext) => {
+  const request = ctx.switchToHttp().getRequest();
+  const user = request.user;
+
+  return data ? user && user[data] : user;
+});
+
+// function decorator
+export function {{ upperName }}(target: any, property: string, descriptor: TypedPropertyDescriptor<any>) {
+  const method = descriptor.value;
+  const source = `${target.constructor.name}.${property}`;
+
+  descriptor.value = function(...args: any[]) {
+    try {
+      // do something ...
+      return method.apply(this, args);
+    } catch (error) {
+      error.message = `${error.message} from ${source}`;
+      throw error;
+    }
+  };
+
+  return descriptor;
+}
+
+// promise decorator
+export function Async{{ upperName }}(target: any, property: string, descriptor: TypedPropertyDescriptor<BasePromise>) {
+  const method = descriptor.value;
+  const source = `${target.constructor.name}.${property}`;
+
+  descriptor.value = async function(...args: any[]) {
+    try {
+      // do something ...
+      const result = method.apply(this, args);
+      return result;
+    } catch (error) {
+      error.message = `${error.message} from ${source}`;
+      throw error;
+    }
+  };
+
+  return descriptor;
+}

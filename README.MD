@@ -32,10 +32,10 @@ npm install -g @vodyani/cli
                                                           
 
 
-  vodyani new   =>  🚀 Create a starter project.
-  vodyani a     =>  🔌 Generate complete api modules in the project.
-  vodyani d     =>  🌏 Generate complete domain modules in the project.
-  vodyani f     =>  🏭 Generate standardized documentation in the project.
+  vodyani new       =>  🚀 Create a starter project.
+  vodyani api       =>  🔌 Generate complete api module in the project.
+  vodyani domain    =>  🌏 Generate complete domain module in the project.
+  vodyani file      =>  🏭 Generate complete file on demand in the project.
 ```
 
 ## License
