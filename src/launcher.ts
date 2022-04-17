@@ -5,6 +5,8 @@ import { Command } from 'commander';
 import {
   HelpHandler,
   ApiGenerator,
+  FileGenerator,
+  DomainGenerator,
   CreateProjectHandler,
 } from './commands';
 import { Logger } from './base';
@@ -40,7 +42,7 @@ export class Launcher {
       .command('new')
       .usage('[command]')
       .description(`🚀 ${color.cyan('Create vodyani application.')}`)
-      .action(async () => (CreateProjectHandler.download(this.cliVersion)));
+      .action(async () => CreateProjectHandler.download(this.cliVersion));
 
     program
       .command('a')
@@ -52,13 +54,13 @@ export class Launcher {
       .command('d')
       .usage('[command]')
       .description(`🌏 ${color.green('Generate domain module.')}`)
-      .action(async () => console.log('1'));
+      .action(async () => DomainGenerator.build());
 
     program
       .command('f')
       .usage('[command]')
       .description(`🏭 ${color.green('Generate file on demand.')}`)
-      .action(async () => console.log('1'));
+      .action(async () => FileGenerator.build());
 
     program.parse(process.argv);
   }

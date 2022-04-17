@@ -1,5 +1,7 @@
 import { existsSync } from 'fs';
 
+import { major } from 'semver';
+
 import { shell } from '../common';
 import { Logger, Input } from '../base';
 
@@ -17,7 +19,7 @@ export class CreateProjectHandler {
     Logger.exec(`Downloading v${version} ...`);
 
     if (!existsSync(`./${name}`)) {
-      shell.exec(`git clone -b ${version} ${CreateProjectHandler.docs} ${name}`);
+      shell.exec(`git clone -b version-${major(version)} ${CreateProjectHandler.docs} ${name}`);
       shell.exec(`cd ${name} && rm -rf .git`);
 
       const { isAllow } = await Input.getAnswer([{

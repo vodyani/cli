@@ -3,7 +3,7 @@
   "license": "MIT",
   "version": "8.0.0",
   "author": "ChoGathK",
-  "description": "cli",
+  "description": "🤖 cli is a command line interface tool to help you initialize, develop and maintain vodyani applications.",
   "homepage": "https://github.com/vodyani/cli#readme",
   "repository": {
     "type": "git",

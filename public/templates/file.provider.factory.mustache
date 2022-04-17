@@ -1,0 +1,25 @@
+import { FixedContext, ProviderFactory } from '@vodyani/core';
+
+export class {{ upperName }}Manager implements ProviderFactory {
+  public static token = Symbol('{{ upperName }}Manager');
+
+  constructor(
+    private readonly options: any,
+  ) {}
+
+  @FixedContext
+  public create() {
+    return {
+      inject: [],
+      provide: {{ upperName }}Manager.token,
+      useFactory: this.useFactory,
+    };
+  }
+
+  @FixedContext
+  private async useFactory(provider: any) {
+    // do something ...
+
+    return provider;
+  }
+}

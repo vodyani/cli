@@ -1,0 +1,16 @@
+import { Request } from 'express';
+import { resultIntercept } from '@vodyani/core';
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
+
+@Injectable()
+export class {{ upperName }}Interceptor implements NestInterceptor {
+  public intercept(ctx: ExecutionContext, next: CallHandler) {
+    const request: Request = ctx.switchToHttp().getRequest();
+
+    return resultIntercept(next, (value: any) => {
+      // do something
+
+      return value;
+    });
+  }
+}

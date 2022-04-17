@@ -1,0 +1,12 @@
+import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+
+@Injectable()
+export class {{ upperName }}Guard implements CanActivate {
+  canActivate(ctx: ExecutionContext) {
+    const request = ctx.switchToHttp().getRequest();
+
+    // do something ...
+    // const result = validateRequest(request); // boolean | Promise<boolean>
+    // return result
+  }
+}

@@ -5,17 +5,11 @@ on:
     branches: [master]
 
 jobs:
-  check_and_test:
-    uses: vodyani/workflows/.github/workflows/pre-check-and-test.yml@master
-
-  publish_codecov:
-    needs: check_and_test
-    uses: vodyani/workflows/.github/workflows/publish-codecov.yml@master
-    secrets:
-      CODE_COV_CI_TOKEN: ${{ secrets.<PACKAGE_CODE_COV_CI_TOKEN> }}
+  check:
+    uses: vodyani/workflows/.github/workflows/pre-check.yml@master
 
   publish_package:
-    needs: check_and_test
+    needs: check
     uses: vodyani/workflows/.github/workflows/publish-npm-package.yml@master
     secrets:
       NPM_CI_TOKEN: ${{ secrets.NPM_CI_TOKEN }}
@@ -23,7 +17,7 @@ jobs:
       enable_build: true
 
   publish_release:
-    needs: [publish_codecov, publish_package]
+    needs: [publish_package]
     uses: vodyani/workflows/.github/workflows/publish-release.yml@master
     secrets:
       GITHUB_CI_TOKEN: ${{ secrets.GITHUB_TOKEN }}

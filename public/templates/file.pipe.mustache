@@ -1,0 +1,10 @@
+import { ArgumentMetadata, Injectable, PipeTransform } from '@nestjs/common';
+
+@Injectable()
+export class {{ upperName }}Pipe implements PipeTransform<any> {
+  public async transform(value: any, argument: ArgumentMetadata) {
+    // do something ...
+
+    return value;
+  }
+}

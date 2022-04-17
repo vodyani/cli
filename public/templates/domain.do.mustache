@@ -1,0 +1,33 @@
+import { ApiProperty } from '@vodyani/swagger';
+
+export class {{ upperName }}Do {
+  @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
+  public id: number;
+
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  public name: string;
+}
+
+export class Find{{ upperName }}Do {
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  public id?: number;
+
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  public name?: string;
+}
+
+export class Create{{ upperName }}Do {
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  public id?: number;
+
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  public name: string;
+}
+
+export class Update{{ upperName }}Do {
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  public id?: number;
+
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  public name?: string;
+}
