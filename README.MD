@@ -1,6 +1,6 @@
 # Vodyani cli
 
-🤖 cli is a command line interface tool to help you initialize, develop and maintain vodyani applications.
+🤖 cli is a command line interface tool to help you initialize, develop and maintain vodyani project.
 
 [![Npm](https://img.shields.io/npm/v/@vodyani/cli)](https://www.npmjs.com/package/@vodyani/cli)
 [![Npm](https://img.shields.io/npm/dm/@vodyani/cli)](https://www.npmjs.com/package/@vodyani/cli)

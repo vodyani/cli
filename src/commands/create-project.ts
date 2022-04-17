@@ -5,6 +5,8 @@ import { major } from 'semver';
 import { shell } from '../common';
 import { Logger, Input } from '../base';
 
+import { HelpHandler } from './help';
+
 export class CreateProjectHandler {
   private static readonly docs = 'https://github.com/vodyani/vodyani.git';
 
@@ -16,10 +18,12 @@ export class CreateProjectHandler {
       default: 'vodyani',
     }]);
 
-    Logger.exec(`Downloading v${version} ...`);
+    const vodyaniVersion = `version/${major(version)}.x`;
+
+    Logger.exec(`Downloading ${vodyaniVersion} ...`);
 
     if (!existsSync(`./${name}`)) {
-      shell.exec(`git clone -b version-${major(version)} ${CreateProjectHandler.docs} ${name}`);
+      shell.exec(`git clone -b ${vodyaniVersion} ${CreateProjectHandler.docs} ${name}`);
 
       if (existsSync(`${name}/.git`)) {
         shell.exec(`rm -rf ${name}/.git`);
@@ -41,7 +45,7 @@ export class CreateProjectHandler {
         shell.exec(`cd ${name} && npm run install:all`);
       }
 
-      Logger.success(`v${version} Created.`);
+      HelpHandler.outputThank(`Project ${name} is created.`);
     } else {
       Logger.error(`${name} already exists.`);
     }

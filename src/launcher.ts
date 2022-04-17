@@ -41,7 +41,7 @@ export class Launcher {
     program
       .command('new')
       .usage('[command]')
-      .description(`🚀 ${color.cyan('Create vodyani application.')}`)
+      .description(`🚀 ${color.cyan('Create vodyani project.')}`)
       .action(async () => CreateProjectHandler.download(this.cliVersion));
 
     program
