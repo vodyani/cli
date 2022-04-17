@@ -16,9 +16,12 @@ npm install -g @vodyani/cli
 
 ## Quick Start
 
+**start**
 ```
   vodyani
 ```
+
+**help**
 
 ```sh
  __     __   ___    ____   __   __     _      _   _   ___ 

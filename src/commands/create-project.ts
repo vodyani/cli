@@ -20,7 +20,10 @@ export class CreateProjectHandler {
 
     if (!existsSync(`./${name}`)) {
       shell.exec(`git clone -b version-${major(version)} ${CreateProjectHandler.docs} ${name}`);
-      shell.exec(`cd ${name} && rm -rf .git`);
+
+      if (existsSync(`${name}/.git`)) {
+        shell.exec(`rm -rf ${name}/.git`);
+      }
 
       const { isAllow } = await Input.getAnswer([{
         type: 'list',
