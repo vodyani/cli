@@ -1,33 +1,59 @@
-import { ApiProperty } from '@vodyani/swagger';
+import { PaginationResult } from '@vodyani/core';
+import { getDefaultNumber } from '@vodyani/transformer';
+import { IsNotEmpty, IsNumber, IsString, Transform, Type, ValidateIf, ValidateNested } from '@vodyani/validator';
+
+import { PaginationDo } from '@/core/do';
 
 export class {{ upperName }}Do {
-  @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
+  @IsNotEmpty()
+  @IsNumber({ allowNaN: false, allowInfinity: false })
   public id: number;
 
-  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  @IsNotEmpty()
+  @IsString()
   public name: string;
 }
 
 export class Find{{ upperName }}Do {
-  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  @Transform(it => getDefaultNumber(it.value))
+  @ValidateIf(it => it.id)
+  @IsNumber({ allowNaN: false, allowInfinity: false })
   public id?: number;
 
-  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  @ValidateIf(it => it.name)
+  @IsString()
   public name?: string;
 }
 
-export class Create{{ upperName }}Do {
-  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
-  public id?: number;
+export class Pagination{{ upperName }}Do implements PaginationResult {
+  @Type(() => {{ upperName }}Do)
+  @ValidateNested({ each: true })
+  public rows: {{ upperName }}Do[];
 
-  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  @Type(() => PaginationDo)
+  @ValidateNested()
+  public page: PaginationDo;
+}
+
+export class Create{{ upperName }}Do {
+  @IsNotEmpty()
+  @IsString()
   public name: string;
 }
 
 export class Update{{ upperName }}Do {
-  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  @Transform(it => getDefaultNumber(it.value))
+  @ValidateIf(it => it.id)
+  @IsNumber({ allowNaN: false, allowInfinity: false })
   public id?: number;
 
-  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  @ValidateIf(it => it.name)
+  @IsString()
   public name?: string;
+}
+
+export class Delete{{ upperName }}Do {
+  @IsNotEmpty()
+  @IsNumber({ allowNaN: false, allowInfinity: false })
+  public id: number;
 }

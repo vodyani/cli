@@ -1,4 +1,4 @@
-import { BasePromise } from '@vodyani/core';
+import { PromiseType } from '@vodyani/core';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 
 // controller decorator
@@ -28,7 +28,7 @@ export function {{ upperName }}(target: any, property: string, descriptor: Typed
 }
 
 // promise decorator
-export function Async{{ upperName }}(target: any, property: string, descriptor: TypedPropertyDescriptor<BasePromise>) {
+export function Async{{ upperName }}(target: any, property: string, descriptor: TypedPropertyDescriptor<PromiseType>) {
   const method = descriptor.value;
   const source = `${target.constructor.name}.${property}`;
 
