@@ -12,7 +12,9 @@ import { CommonGenerator } from './generate-common';
 
 export class FileGenerator {
   public static async build() {
-    const { target, name } = await Input.getAnswer([
+    let name = '';
+
+    const { target } = await Input.getAnswer([
       {
         message: 'Which target do you want to create?',
         name: 'target',
@@ -26,13 +28,18 @@ export class FileGenerator {
           'test',
         ],
       },
-      {
-        message: 'Enter the name you want to create, if the name has more than one word please use `-` split.',
-        name: 'name',
-        type: 'input',
-        default: 'normal',
-      },
     ]);
+
+    if (target !== 'common') {
+      ({ name } = await Input.getAnswer([
+        {
+          message: 'Enter the name you want to create, if the name has more than one word please use `-` split.',
+          name: 'name',
+          type: 'input',
+          default: 'normal',
+        },
+      ]));
+    }
 
     Logger.exec(`Generate ${name} ${target} ...`);
 
