@@ -1,59 +1,50 @@
 import { PaginationResult } from '@vodyani/core';
-import { getDefaultNumber } from '@vodyani/transformer';
 import { IsNotEmpty, IsNumber, IsString, Transform, Type, ValidateIf, ValidateNested } from '@vodyani/validator';
 
 import { PaginationDo } from '@/core/do';
 
 export class {{ upperName }}Do {
-  @IsNotEmpty()
-  @IsNumber({ allowNaN: false, allowInfinity: false })
+  @IsNotEmpty() @IsNumber({ allowNaN: false, allowInfinity: false })
+  @Expose()
   public id: number;
 
-  @IsNotEmpty()
-  @IsString()
+  @IsNotEmpty() @IsString()
+  @Expose()
   public name: string;
 }
 
 export class Find{{ upperName }}Do {
-  @Transform(it => getDefaultNumber(it.value))
-  @ValidateIf(it => it.id)
-  @IsNumber({ allowNaN: false, allowInfinity: false })
+  @ValidateIf(it => it.id) @IsNumber({ allowNaN: false, allowInfinity: false })
+  @Expose()
   public id?: number;
 
-  @ValidateIf(it => it.name)
-  @IsString()
+  @ValidateIf(it => it.name) @IsString()
+  @Expose()
   public name?: string;
 }
 
 export class Pagination{{ upperName }}Do implements PaginationResult {
-  @Type(() => {{ upperName }}Do)
   @ValidateNested({ each: true })
+  @Expose() @Type(() => {{ upperName }}Do)
   public rows: {{ upperName }}Do[];
 
-  @Type(() => PaginationDo)
   @ValidateNested()
+  @Expose() @Type(() => PaginationDo)
   public page: PaginationDo;
 }
 
 export class Create{{ upperName }}Do {
-  @IsNotEmpty()
-  @IsString()
+  @IsNotEmpty() @IsString()
+  @Expose()
   public name: string;
 }
 
 export class Update{{ upperName }}Do {
-  @Transform(it => getDefaultNumber(it.value))
-  @ValidateIf(it => it.id)
-  @IsNumber({ allowNaN: false, allowInfinity: false })
+  @ValidateIf(it => it.id) @IsNumber({ allowNaN: false, allowInfinity: false })
+  @Expose()
   public id?: number;
 
-  @ValidateIf(it => it.name)
-  @IsString()
+  @ValidateIf(it => it.name) @IsString()
+  @Expose()
   public name?: string;
-}
-
-export class Delete{{ upperName }}Do {
-  @IsNotEmpty()
-  @IsNumber({ allowNaN: false, allowInfinity: false })
-  public id: number;
 }

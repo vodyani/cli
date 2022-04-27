@@ -1,4 +1,4 @@
-// import { getDefaultNumber } from '@vodyani/transformer';
+// import { convertNumber } from '@vodyani/transformer';
 import { ApiTags, ApiOperation } from '@vodyani/swagger';
 import { ParamValidate, Required } from '@vodyani/validator';
 import { Controller, Get, Query, Post, HttpCode, Body, Param, Delete, Put } from '@nestjs/common';
@@ -53,7 +53,7 @@ export class {{ upperName }}Controller {
     @Required() @Param('id') id: string,
     @Body() dto: Update{{ upperName }}Dto,
   ): Promise<void> {
-    // const result = await this.service.update(getDefaultNumber(id), dto);
+    // const result = await this.service.update(convertNumber(id), dto);
     // return result;
   }
 
@@ -62,7 +62,7 @@ export class {{ upperName }}Controller {
   @ApiOperation({ summary: 'delete' })
   @ApiResponseVo()
   public async delete(@Required() @Param('id') id: string) {
-    // const result = await this.service.delete(getDefaultNumber(id));
+    // const result = await this.service.delete(convertNumber(id));
     // return result;
   }
 }
