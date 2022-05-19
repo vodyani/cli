@@ -4,11 +4,8 @@ export class {{ upperName }}Manager implements ProviderFactory {
   public static token = Symbol('{{ upperName }}Manager');
 
   constructor(
-    private readonly options: any,
-  ) {}
-
-  @FixedContext
-  public create() {
+    // private readonly options: any,
+  ) {
     return {
       inject: [],
       provide: {{ upperName }}Manager.token,
@@ -17,9 +14,7 @@ export class {{ upperName }}Manager implements ProviderFactory {
   }
 
   @FixedContext
-  private async useFactory(provider: any) {
+  private async useFactory() {
     // do something ...
-
-    return provider;
   }
 }
