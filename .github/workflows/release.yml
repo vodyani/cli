@@ -2,22 +2,19 @@ name: "release"
 
 on:
   push:
-    branches: [master]
+    branches: [beta, alpha, 8.x]
 
 jobs:
   check:
-    uses: vodyani/workflows/.github/workflows/pre-check.yml@master
+    uses: vodyani/workflows/.github/workflows/check.yml@master
+    with:
+      enable_test: false
 
-  publish_package:
-    needs: check
-    uses: vodyani/workflows/.github/workflows/publish-npm-package.yml@master
+  semantic_release:
+    needs: [check]
+    uses: vodyani/workflows/.github/workflows/semantic-release.yml@master
     secrets:
       NPM_CI_TOKEN: ${{ secrets.NPM_CI_TOKEN }}
+      GITHUB_CI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
       enable_build: true
-
-  publish_release:
-    needs: [publish_package]
-    uses: vodyani/workflows/.github/workflows/publish-release.yml@master
-    secrets:
-      GITHUB_CI_TOKEN: ${{ secrets.GITHUB_TOKEN }}

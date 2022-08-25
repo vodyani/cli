@@ -8,6 +8,7 @@ import {
   FileGenerator,
   DomainGenerator,
   CreateProjectHandler,
+  InfrastructureGenerator,
 } from './commands';
 import { Logger } from './base';
 import { color } from './common';
@@ -45,21 +46,27 @@ export class Launcher {
       .action(async () => CreateProjectHandler.download(this.cliVersion));
 
     program
-      .command('api')
+      .command('a')
       .usage('[command]')
       .description(`🔌 ${color.green('Generate api module.')}`)
       .action(async () => ApiGenerator.build());
 
     program
-      .command('domain')
+      .command('d')
       .usage('[command]')
       .description(`🌏 ${color.green('Generate domain module.')}`)
       .action(async () => DomainGenerator.build());
 
     program
-      .command('file')
+      .command('i')
       .usage('[command]')
-      .description(`🏭 ${color.green('Generate file on demand.')}`)
+      .description(`🏭 ${color.green('Generate infrastructure module.')}`)
+      .action(async () => InfrastructureGenerator.build());
+
+    program
+      .command('f')
+      .usage('[command]')
+      .description(`📚 ${color.green('Generate file on demand.')}`)
       .action(async () => FileGenerator.build());
 
     program.parse(process.argv);
