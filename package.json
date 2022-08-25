@@ -48,14 +48,7 @@
     "extends": "@vodyani"
   },
   "release": {
-    "extends": "@vodyani/semantic-release",
-    "branches": [
-      {
-        "name": "8.x",
-        "range": "8.x",
-        "channel": "8.x"
-      }
-    ]
+    "extends": "@vodyani/semantic-release"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
