@@ -72,7 +72,7 @@
     "@types/shelljs": "^0.8.11",
     "@vodyani/eslint-config": "^1.0.10",
     "@vodyani/semantic-release": "1.1.1",
-    "husky": "7.0.4",
+    "husky": "8.0.1",
     "typescript": "4.6.3"
   },
   "dependencies": {
