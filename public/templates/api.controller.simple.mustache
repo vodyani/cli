@@ -1,15 +1,19 @@
 import { ApiTags } from '@nestjs/swagger';
 import { Controller, Get } from '@nestjs/common';
 
-import { ApiResponseVo } from '@/core/decorator';
+import { ApiResponseVo } from '@/infrastructure/swagger/decorator';
 
 @ApiTags('{{ name }}')
 @Controller('{{ name }}')
 export class {{ upperName }}Controller {
+  constructor(
+    private readonly service: any,
+  ) {}
+
   @Get()
   @ApiResponseVo()
   public async find() {
-    const result = await this.service.get();
+    const result = await this.domain.find();
     return result;
   }
 }

@@ -3,7 +3,6 @@ import { existsSync } from 'fs';
 import { shell } from '../common';
 import { Logger, Input } from '../base';
 
-import { CommonGenerator } from './generate-common';
 import { FileGenerator } from './generate-file';
 
 export class DomainGenerator {
@@ -23,7 +22,6 @@ export class DomainGenerator {
       await DomainGenerator.providerHandler(name);
       await DomainGenerator.doHandler(name);
       await DomainGenerator.moduleHandler(name);
-      await CommonGenerator.build(name);
 
       Logger.success(`${name} Domain Created.`);
     } else {

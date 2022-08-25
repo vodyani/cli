@@ -1,44 +1,43 @@
-import { Expose } from '@vodyani/transformer';
-import { ApiProperty } from '@vodyani/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 import { PaginationQueryDto } from '@/core/dto';
 
 export class {{ upperName }}Dto {
-  @Expose() @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
+  @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
   public id: number;
 
-  @Expose() @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
   public name: string;
 }
 
 export class Find{{ upperName }}Dto {
-  @Expose() @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
-  @Expose() @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
   public name?: string;
 }
 
 export class Create{{ upperName }}Dto {
-  @Expose() @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
-  @Expose() @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
   public name: string;
 }
 
 export class Update{{ upperName }}Dto {
-  @Expose() @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
-  @Expose() @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
   public name?: string;
 }
 
 export class Pagination{{ upperName }}Dto extends PaginationQueryDto {
-  @Expose() @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
+  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
-  @Expose() @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
+  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
   public name?: string;
 }

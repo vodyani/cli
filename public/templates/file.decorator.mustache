@@ -1,4 +1,4 @@
-import { FunctionType } from '@vodyani/core';
+import { Method } from '@vodyani/utils';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 
 // controller decorator
@@ -10,7 +10,7 @@ export const User = createParamDecorator((data: any, ctx: ExecutionContext) => {
 });
 
 // function decorator
-export function {{ upperName }}(target: any, property: string, descriptor: TypedPropertyDescriptor<FunctionType>) {
+export function {{ upperName }}(target: any, property: string, descriptor: TypedPropertyDescriptor<Method>) {
   const method = descriptor.value;
 
   descriptor.value = function(...args: any[]) {

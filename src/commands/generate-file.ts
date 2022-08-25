@@ -8,7 +8,6 @@ import { templatePath } from '../common';
 
 import { ApiGenerator } from './generate-api';
 import { DomainGenerator } from './generate-domain';
-import { CommonGenerator } from './generate-common';
 
 export class FileGenerator {
   public static async build() {
@@ -22,7 +21,6 @@ export class FileGenerator {
         type: 'list',
         choices: [
           'api',
-          'common',
           'default',
           'domain',
           'test',
@@ -30,24 +28,21 @@ export class FileGenerator {
       },
     ]);
 
-    if (target !== 'common') {
-      ({ name } = await Input.getAnswer([
-        {
-          message: 'Enter the name you want to create, if the name has more than one word please use `-` split.',
-          name: 'name',
-          type: 'input',
-          default: 'normal',
-        },
-      ]));
-    }
+    ({ name } = await Input.getAnswer([
+      {
+        message: 'Enter the name you want to create, if the name has more than one word please use `-` split.',
+        name: 'name',
+        type: 'input',
+        default: 'normal',
+      },
+    ]));
 
     Logger.exec(`Generate ${name} ${target} ...`);
 
-    if (target === 'api') await FileGenerator.selectApi(name);
-    if (target === 'common') await CommonGenerator.select();
-    if (target === 'domain') await FileGenerator.selectDomain(name);
     if (target === 'default') await FileGenerator.selectDefault(name);
     if (target === 'test') FileGenerator.write('test', `${name}.spec`);
+    if (target === 'api') await FileGenerator.selectApi(name);
+    if (target === 'domain') await FileGenerator.selectDomain(name);
 
     Logger.success(`${name} Created.`);
   }
@@ -109,7 +104,6 @@ export class FileGenerator {
         'decorator',
         'guard',
         'interceptor',
-        'method',
         'module',
         'provider',
         'pipe',
@@ -121,7 +115,6 @@ export class FileGenerator {
     if (type === 'pipe') FileGenerator.write('file.pipe', name, `${name}-pipe`);
     if (type === 'guard') FileGenerator.write('file.guard', name, `${name}-guard`);
     if (type === 'filter') FileGenerator.write('file.filter', name, `${name}-filter`);
-    if (type === 'method') FileGenerator.write('file.method', name, `${name}-method`, false);
     if (type === 'decorator') FileGenerator.write('file.decorator', name, `${name}-decorator`);
     if (type === 'interceptor') FileGenerator.write('file.interceptor', name, `${name}-interceptor`);
   }
