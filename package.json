@@ -5,6 +5,9 @@
   "author": "ChoGathK",
   "description": "🤖 cli is a command line interface tool to help you initialize, develop and maintain vodyani project.",
   "homepage": "https://github.com/vodyani/cli#readme",
+  "bugs": {
+    "url": "https://github.com/vodyani/cli/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vodyani/cli.git"
@@ -16,9 +19,6 @@
     "cli",
     "npm-package"
   ],
-  "bugs": {
-    "url": "https://github.com/vodyani/cli/issues"
-  },
   "files": [
     "package.json",
     "README.MD",
@@ -31,25 +31,34 @@
     "vodyani": "dist/index.js"
   },
   "scripts": {
-    "patch": "npm version patch",
-    "minor": "npm version minor",
-    "major": "npm version major",
-    "install:all": "npm i && npm i @vodyani/eslint-config -D && npx husky install",
+    "local": "npm i && npm i @vodyani/eslint-config -D && npx husky install",
     "build": "rm -rf dist && tsc",
-    "test": "ts-node ./index.ts",
+    "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "eslint ./src && tsc",
     "lint:fix": "eslint --fix --ext .ts src/ test/",
     "lint:html-report": "eslint ./src -f html -o eslint-report.html",
-    "lint:json-report": "eslint ./src -f json -o eslint-report.json"
+    "lint:json-report": "eslint ./src -f json -o eslint-report.json",
+    "release": "npx semantic-release"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+  "publishConfig": {
+    "access": "public"
   },
   "eslintConfig": {
     "extends": "@vodyani"
+  },
+  "release": {
+    "extends": "@vodyani/semantic-release",
+    "branches": [
+      {
+        "name": "8.x",
+        "range": "8.x",
+        "channel": "8.x"
+      }
+    ]
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
   },
   "devDependencies": {
     "@commitlint/cli": "16.2.3",
@@ -61,7 +70,8 @@
     "@types/node": "16.11.26",
     "@types/semver": "^7.3.9",
     "@types/shelljs": "^0.8.11",
-    "@vodyani/eslint-config": "^1.0.9",
+    "@vodyani/eslint-config": "^1.0.10",
+    "@vodyani/semantic-release": "1.1.1",
     "husky": "7.0.4",
     "typescript": "4.6.3"
   },

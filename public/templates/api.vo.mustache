@@ -1,11 +1,15 @@
-import { Expose } from '@vodyani/transformer';
-import { ApiProperty, SwaggerVo } from '@vodyani/swagger';
+import { ApiProperty } from '@nestjs/swagger';
+import { Expose } from '@vodyani/class-decorator';
 
-@SwaggerVo
+import { SwaggerEntity } from '@/infrastructure/swagger/decorator';
+
+@SwaggerEntity
 export class {{ upperName }}Vo {
-  @Expose() @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
+  @Expose()
+  @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
   public id: number;
 
-  @Expose() @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
+  @Expose()
+  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
   public name: string;
 }

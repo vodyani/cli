@@ -1,17 +1,17 @@
 import { Request } from 'express';
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
 
-import { resultIntercept } from '@/core/method';
+import { responseIntercept } from '@/core/method';
 
 @Injectable()
-export class {{ upperName }}Interceptor implements NestInterceptor {
+export class NormalInterceptor implements NestInterceptor {
   public intercept(ctx: ExecutionContext, next: CallHandler) {
     const request: Request = ctx.switchToHttp().getRequest();
 
-    return resultIntercept(next, (value: any) => {
+    return responseIntercept(next, (body: any) => {
       // do something
 
-      return value;
+      return body;
     });
   }
 }

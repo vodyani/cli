@@ -4,10 +4,11 @@ import { figlet } from '../common';
 export class HelpHandler {
   public static async outputUsage(): Promise<void> {
     const value = `
-    vodyani new       =>  🚀 Create a starter project.
-    vodyani api       =>  🔌 Generate complete api modules in the project.
-    vodyani domain    =>  🌏 Generate complete domain modules in the project.
-    vodyani file      =>  🏭 Generate complete file on demand in the project.
+    vodyani new  =>  🚀 Create a starter project.
+    vodyani a    =>  🔌 Generate complete api modules in the project.
+    vodyani d    =>  🌏 Generate complete domain modules in the project.
+    vodyani i    =>  🏭 Generate complete infrastructure modules in the project.
+    vodyani f    =>  📚 Generate complete file on demand in the project.
     `;
 
     HelpHandler.outputThank(value);

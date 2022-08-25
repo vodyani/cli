@@ -1,12 +1,10 @@
-import { DomainModule } from '@vodyani/core';
+import { Domain } from '@vodyani/core';
 
-@DomainModule({
-  imports: [],
-  exports: [],
+@Domain({
+  import: [],
   service: [],
   manager: [],
   repository: [],
   provider: [],
-  entity: [],
 })
 export class {{ upperName }}Domain {}

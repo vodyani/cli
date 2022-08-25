@@ -3,7 +3,6 @@ import { existsSync } from 'fs';
 import { shell } from '../common';
 import { Logger, Input } from '../base';
 
-import { CommonGenerator } from './generate-common';
 import { FileGenerator } from './generate-file';
 
 export class ApiGenerator {
@@ -22,9 +21,8 @@ export class ApiGenerator {
       await ApiGenerator.moduleHandler(name);
       await ApiGenerator.dtoHandler(name);
       await ApiGenerator.voHandler(name);
-      await CommonGenerator.build(name);
 
-      Logger.success(`${name} Api Created.`);
+      Logger.success(`${name} api created.`);
     } else {
       Logger.error(`${name} already exists.`);
     }

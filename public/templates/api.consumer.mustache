@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { FixedContext } from '@vodyani/core';
+import { This } from '@vodyani/class-decorator';
 
 @Injectable()
 export class {{ upperName }}Consumer {
 
-  @FixedContext
+  @This
   private async subscribe() {
     //
   }
