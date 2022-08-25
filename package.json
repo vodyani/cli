@@ -51,14 +51,10 @@
     "extends": "@vodyani/semantic-release",
     "branches": [
       {
-        "name": "beta/+([0-9])?(.{+([0-9]),x}).x.*",
-        "prerelease": true
-      },
-      {
-        "name": "alpha/+([0-9])?(.{+([0-9]),x}).x.*",
-        "prerelease": true
-      },
-      "version/+([0-9])?(.{+([0-9]),x}).x.*"
+        "name": "8.x",
+        "range": "8.x",
+        "channel": "8.x"
+      }
     ]
   },
   "commitlint": {

@@ -2,7 +2,7 @@ name: "release"
 
 on:
   push:
-    branches: [beta/*.*, alpha/*.*, version/*.*]
+    branches: [beta, alpha, 8.x]
 
 jobs:
   check:
