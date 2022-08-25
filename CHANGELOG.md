@@ -1,3 +1,10 @@
+## [8.1.1](https://github.com/vodyani/cli/compare/v8.1.0...v8.1.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* infrastructure module ([cc33502](https://github.com/vodyani/cli/commit/cc3350248e06828a1b4218d90f1dc23a0318914b))
+
 ## [8.1.1-beta.1](https://github.com/vodyani/cli/compare/v8.1.0...v8.1.1-beta.1) (2022-08-25)
 
 
