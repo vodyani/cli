@@ -48,7 +48,18 @@
     "extends": "@vodyani"
   },
   "release": {
-    "extends": "@vodyani/semantic-release"
+    "extends": "@vodyani/semantic-release",
+    "branches": [
+      {
+        "name": "beta/*.*",
+        "prerelease": true
+      },
+      {
+        "name": "alpha/*.*",
+        "prerelease": true
+      },
+      "version/*.*"
+    ]
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
