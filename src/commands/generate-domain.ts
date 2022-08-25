@@ -23,7 +23,7 @@ export class DomainGenerator {
       await DomainGenerator.doHandler(name);
       await DomainGenerator.moduleHandler(name);
 
-      Logger.success(`${name} Domain Created.`);
+      Logger.success(`${name} domain created.`);
     } else {
       Logger.error(`${name} already exists.`);
     }

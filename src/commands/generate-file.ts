@@ -44,7 +44,7 @@ export class FileGenerator {
     if (target === 'api') await FileGenerator.selectApi(name);
     if (target === 'domain') await FileGenerator.selectDomain(name);
 
-    Logger.success(`${name} Created.`);
+    Logger.success(`${name} created.`);
   }
 
   public static async selectApi(name: string) {

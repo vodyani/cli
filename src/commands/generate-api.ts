@@ -22,7 +22,7 @@ export class ApiGenerator {
       await ApiGenerator.dtoHandler(name);
       await ApiGenerator.voHandler(name);
 
-      Logger.success(`${name} Api Created.`);
+      Logger.success(`${name} api created.`);
     } else {
       Logger.error(`${name} already exists.`);
     }

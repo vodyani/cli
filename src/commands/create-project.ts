@@ -41,7 +41,7 @@ export class CreateProjectHandler {
         shell.exec(`cd ${name} && npm run install:all`);
       }
 
-      HelpHandler.outputThank(`Project ${name} is created.`);
+      HelpHandler.outputThank(`vodyani project ${name} is created.`);
     } else {
       Logger.error(`${name} already exists.`);
     }

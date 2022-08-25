@@ -19,7 +19,7 @@ export class InfrastructureGenerator {
       await InfrastructureGenerator.moduleHandler(name);
       await InfrastructureGenerator.providerHandler(name);
 
-      Logger.success(`${name} Infrastructure Created.`);
+      Logger.success(`${name} infrastructure created.`);
     } else {
       Logger.error(`${name} already exists.`);
     }
