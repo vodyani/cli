@@ -63,7 +63,7 @@
     "@types/node": "16.11.26",
     "@types/semver": "^7.3.9",
     "@types/shelljs": "^0.8.11",
-    "@vodyani/eslint-config": "^1.0.10",
+    "@vodyani/eslint-config": "1.1.0",
     "@vodyani/semantic-release": "1.1.1",
     "husky": "7.0.4",
     "typescript": "4.6.3"
