@@ -8,6 +8,7 @@ import { templatePath } from '../common';
 
 import { ApiGenerator } from './generate-api';
 import { DomainGenerator } from './generate-domain';
+import { InfrastructureGenerator } from './generate-infrastructure';
 
 export class FileGenerator {
   public static async build() {
@@ -17,12 +18,13 @@ export class FileGenerator {
       {
         message: 'Which target do you want to create?',
         name: 'target',
-        default: 'api',
+        default: 'normal',
         type: 'list',
         choices: [
+          'normal',
           'api',
-          'default',
           'domain',
+          'infrastructure',
           'test',
         ],
       },
@@ -37,12 +39,13 @@ export class FileGenerator {
       },
     ]));
 
-    Logger.exec(`Generate ${name} ${target} ...`);
+    Logger.exec(`generate ${name} ${target} ...`);
 
-    if (target === 'default') await FileGenerator.selectDefault(name);
+    if (target === 'normal') await FileGenerator.selectDefault(name);
     if (target === 'test') FileGenerator.write('test', `${name}.spec`);
     if (target === 'api') await FileGenerator.selectApi(name);
     if (target === 'domain') await FileGenerator.selectDomain(name);
+    if (target === 'infrastructure') await FileGenerator.selectInfrastructure(name);
 
     Logger.success(`${name} created.`);
   }
@@ -88,7 +91,7 @@ export class FileGenerator {
     if (type === 'service') await DomainGenerator.serviceHandler(name, true);
     if (type === 'manager') await DomainGenerator.managerHandler(name, true);
     if (type === 'repository') await DomainGenerator.repositoryHandler(name, true);
-    if (type === 'provider') await DomainGenerator.providerHandler(name, true);
+    if (type === 'provider') await FileGenerator.providerHandler(name);
     if (type === 'module') await DomainGenerator.moduleHandler(name, true);
     if (type === 'do') await DomainGenerator.doHandler(name, true);
   }
@@ -97,15 +100,15 @@ export class FileGenerator {
     const { type } = await Input.getAnswer([{
       message: 'Which type do you want to create?',
       name: 'type',
-      default: 'filter',
+      default: 'module',
       type: 'list',
       choices: [
+        'module',
+        'provider',
         'filter',
         'decorator',
         'guard',
         'interceptor',
-        'module',
-        'provider',
         'pipe',
       ],
     }]);
@@ -117,6 +120,22 @@ export class FileGenerator {
     if (type === 'filter') FileGenerator.write('file.filter', name, `${name}-filter`);
     if (type === 'decorator') FileGenerator.write('file.decorator', name, `${name}-decorator`);
     if (type === 'interceptor') FileGenerator.write('file.interceptor', name, `${name}-interceptor`);
+  }
+
+  public static async selectInfrastructure(name: string) {
+    const { type } = await Input.getAnswer([{
+      message: 'Which type do you want to create?',
+      name: 'type',
+      default: 'do',
+      type: 'list',
+      choices: [
+        'module',
+        'provider',
+      ],
+    }]);
+
+    if (type === 'provider') await FileGenerator.providerHandler(name);
+    if (type === 'module') await InfrastructureGenerator.moduleHandler(name, true);
   }
 
   public static async providerHandler(name: string) {

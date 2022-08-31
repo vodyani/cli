@@ -1,11 +1,14 @@
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import { Injectable, CanActivate, ExecutionContext } from '@vodyani/core';
+
+import { Req, Res } from '@/core/common';
 
 @Injectable()
 export class {{ upperName }}Guard implements CanActivate {
   canActivate(ctx: ExecutionContext) {
-    const request = ctx.switchToHttp().getRequest();
+    const request = ctx.switchToHttp().getRequest<Req>();
+    const response = ctx.switchToHttp().getResponse<Res>();
 
     // do something ...
-    return result
+    return true;
   }
 }

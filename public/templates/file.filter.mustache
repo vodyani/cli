@@ -1,12 +1,13 @@
-import { Request, Response } from 'express';
-import { Catch, HttpException, ExceptionFilter, ArgumentsHost } from '@nestjs/common';
+import { Catch, HttpException, ExceptionFilter, ArgumentsHost } from '@vodyani/core';
+
+import { Req, Res } from '@/core/common';
 
 @Catch()
 export class {{ upperName }}ExceptionFilter implements ExceptionFilter {
   public catch(exception: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
-    const request = ctx.getRequest<Request>();
-    const response = ctx.getResponse<Response>();
+    const request = ctx.getRequest<Req>();
+    const response = ctx.getResponse<Res>();
 
     // response
     //   .status() // status code
