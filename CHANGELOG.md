@@ -1,3 +1,12 @@
+# [8.2.0](https://github.com/vodyani/cli/compare/v8.1.2...v8.2.0) (2022-08-31)
+
+
+### Features
+
+* refactoring how the project is initialized ([f6f3889](https://github.com/vodyani/cli/commit/f6f38895d17d446f9402b4eeec00b084a32b3431))
+* refactoring templates ([9c0c000](https://github.com/vodyani/cli/commit/9c0c0005aba5aaa76cc8c186dfb2392045866ab0))
+* refactoring templates ([04332d2](https://github.com/vodyani/cli/commit/04332d25bfc4a9579bdac416af0b789856d81308))
+
 ## [8.1.2](https://github.com/vodyani/cli/compare/v8.1.1...v8.1.2) (2022-08-25)
 
 
