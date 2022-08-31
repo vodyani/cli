@@ -26,7 +26,7 @@ export class Launcher {
     }
   }
 
-  public build() {
+  public run() {
     const program = new Command();
 
     program

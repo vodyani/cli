@@ -11,7 +11,7 @@ export class ApiGenerator {
       message: 'Enter the name you want to create, if the name has more than one word please use `-` split.', name: 'name', type: 'input', default: 'normal',
     }]);
 
-    Logger.exec(`Generate ${name} ...`);
+    Logger.exec(`generate ${name} ...`);
 
     if (!existsSync(`./${name}`)) {
       shell.mkdir(name);

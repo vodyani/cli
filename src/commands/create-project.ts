@@ -18,9 +18,9 @@ export class CreateProjectHandler {
       default: 'vodyani',
     }]);
 
-    const vodyaniVersion = `version/${major(version)}.x`;
+    const vodyaniVersion = `${major(version)}.x`;
 
-    Logger.exec(`Downloading ${vodyaniVersion} ...`);
+    Logger.exec(`download ${vodyaniVersion} ...`);
 
     if (!existsSync(`./${name}`)) {
       shell.exec(`git clone -b ${vodyaniVersion} ${CreateProjectHandler.docs} ${name}`);
@@ -37,11 +37,15 @@ export class CreateProjectHandler {
       }]);
 
       if (isAllow === 'yes') {
-        Logger.exec(`Install all ...`);
-        shell.exec(`cd ${name} && npm run install:all`);
+        Logger.exec(`install all ...`);
+        shell.exec(`cd ${name} && npm run local`);
       }
 
-      HelpHandler.outputThank(`vodyani project ${name} is created.`);
+      shell.exec(`rm -rf ./${name}/.git`);
+      shell.exec(`rm -rf ./${name}/.github`);
+      shell.exec(`rm -rf ./${name}/renovate.json`);
+
+      HelpHandler.outputThank(`\n vodyani project: ${name} is created 🎉`);
     } else {
       Logger.error(`${name} already exists.`);
     }

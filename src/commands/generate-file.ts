@@ -37,7 +37,7 @@ export class FileGenerator {
       },
     ]));
 
-    Logger.exec(`Generate ${name} ${target} ...`);
+    Logger.exec(`generate ${name} ${target} ...`);
 
     if (target === 'default') await FileGenerator.selectDefault(name);
     if (target === 'test') FileGenerator.write('test', `${name}.spec`);

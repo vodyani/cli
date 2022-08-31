@@ -11,7 +11,7 @@ export class DomainGenerator {
       message: 'Enter the name you want to create, if the name has more than one word please use `-` split.', name: 'name', type: 'input', default: 'normal',
     }]);
 
-    Logger.exec(`Generate ${name} Domain ...`);
+    Logger.exec(`generate ${name} Domain ...`);
 
     if (!existsSync(`./${name}`)) {
       shell.mkdir(name);
