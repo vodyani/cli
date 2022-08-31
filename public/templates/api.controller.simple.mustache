@@ -1,7 +1,7 @@
-import { ApiTags } from '@nestjs/swagger';
-import { Controller, Get } from '@nestjs/common';
+import { ApiTags } from '@vodyani/swagger';
+import { Controller, Get } from '@vodyani/core';
 
-import { ApiResponseVo } from '@/infrastructure/swagger/decorator';
+import { ApiResponseVo } from '@/core/decorator';
 
 @ApiTags('{{ name }}')
 @Controller('{{ name }}')
@@ -13,7 +13,7 @@ export class {{ upperName }}Controller {
   @Get()
   @ApiResponseVo()
   public async find() {
-    const result = await this.domain.find();
+    const result = await this.service.find();
     return result;
   }
 }

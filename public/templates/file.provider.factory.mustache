@@ -1,18 +1,18 @@
-import { FixedContext, ProviderFactory } from '@vodyani/core';
+import { This } from '@vodyani/class-decorator';
+import { AsyncInjectable, AsyncProvider, AsyncProviderFactory, InjectionToken, OptionalFactoryDependency } from '@vodyani/core';
 
-export class {{ upperName }}Manager implements ProviderFactory {
-  public static token = Symbol('{{ upperName }}Manager');
-
-  @FixedContext
+@AsyncInjectable
+export class {{ upperName }}Manager extends AsyncProvider implements AsyncProviderFactory {
+  @This
   public create() {
     return {
-      inject: [],
-      provide: {{ upperName }}Manager.token,
       useFactory: this.useFactory,
+      provide: {{ upperName }}Manager.getToken(),
+      inject: [] as Array<InjectionToken | OptionalFactoryDependency>,
     };
   }
 
-  @FixedContext
+  @This
   private async useFactory() {
     // do something ...
   }

@@ -1,17 +1,18 @@
-import { Request } from 'express';
-import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
+import { map } from 'rxjs';
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@vodyani/core';
 
-import { responseIntercept } from '@/core/method';
+import { Req, Res } from '@/core/common';
 
 @Injectable()
 export class NormalInterceptor implements NestInterceptor {
   public intercept(ctx: ExecutionContext, next: CallHandler) {
-    const request: Request = ctx.switchToHttp().getRequest();
+    const request = ctx.switchToHttp().getRequest<Req>();
+    const response = ctx.switchToHttp().getResponse<Res>();
 
-    return responseIntercept(next, (body: any) => {
+    return next.handle().pipe(map(result => {
       // do something
 
-      return body;
-    });
+      return result;
+    }));
   }
 }

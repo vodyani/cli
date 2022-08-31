@@ -1,13 +1,12 @@
 import { toNumber } from '@vodyani/utils';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@vodyani/swagger';
 import { ArgumentValidator, Required } from '@vodyani/class-decorator';
-import { Controller, Get, Query, Post, HttpCode, Body, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Query, Post, Body, Param, Delete, Put } from '@vodyani/core';
 
 import { {{ upperName }}Vo } from './vo';
 import { Create{{ upperName }}Dto, Find{{ upperName }}Dto, Pagination{{ upperName }}Dto, Update{{ upperName }}Dto } from './dto';
 
-import { HTTP_STATUS } from '@/core/common';
-import { ApiResponseVo, ApiArrayResponseVo, ApiPaginationResponseVo } from '@/infrastructure/swagger/decorator';
+import { ApiResponseVo, ApiArrayResponseVo, ApiPaginationResponseVo } from '@/core/decorator';
 
 @Controller('{{ name }}')
 @ApiTags('{{ name }} controller')
@@ -41,7 +40,6 @@ export class {{ upperName }}Controller {
   }
 
   @Post('/create')
-  @HttpCode(HTTP_STATUS.SUCCESS)
   @ApiOperation({ summary: 'create' })
   @ApiResponseVo({{ upperName }}Vo)
   public async create(@Body() dto: Create{{ upperName }}Dto) {

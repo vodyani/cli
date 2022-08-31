@@ -1,7 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { Expose } from '@vodyani/class-decorator';
-
-import { SwaggerEntity } from '@/infrastructure/swagger/decorator';
+import { ApiProperty, SwaggerEntity } from '@vodyani/swagger';
 
 @SwaggerEntity
 export class {{ upperName }}Vo {
