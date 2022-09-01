@@ -51,6 +51,8 @@ npm install -g @vodyani/cli
 |:-:|
 |[ChoGathK](https://github.com/chogathK)|
 
+![Alt](https://repobeats.axiom.co/api/embed/5d9a15dec859f18f2c26fb3763654974c5d9816e.svg "Repobeats analytics image")
+
 ## License
 
 Vodyani cli is [MIT licensed](LICENSE).
