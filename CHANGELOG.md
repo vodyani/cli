@@ -1,3 +1,10 @@
+## [8.2.1](https://github.com/vodyani/cli/compare/v8.2.0...v8.2.1) (2022-09-07)
+
+
+### Bug Fixes
+
+* deps ([62ad038](https://github.com/vodyani/cli/commit/62ad0384b75542775e4b8526dd6817f407995fde))
+
 # [8.2.0](https://github.com/vodyani/cli/compare/v8.1.2...v8.2.0) (2022-08-31)
 
 
