@@ -23,7 +23,7 @@ export class HelpHandler {
 
         Logger.info(data);
         Logger.info(`\n${message}`);
-        Logger.info(`\nFind everything in the documentation: https://vodyani.vercel.app 📚`);
+        Logger.info(`\nFind everything in the documentation: https://vodyani.netlify.app 📚`);
 
         resolve(null);
       });

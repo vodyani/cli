@@ -38,8 +38,8 @@ npm install -g @vodyani/cli
   vodyani f    =>  📚 Generate complete file on demand in the project.
 ```
 
-- [使用文档 📚](https://vodyani.vercel.app/docs/other/cli)
-- [Documentation 📚](https://vodyani.vercel.app/en/docs/other/cli)
+- [使用文档 📚](https://vodyani.netlify.app/docs/other/cli)
+- [Documentation 📚](https://vodyani.netlify.app/en/docs/other/cli)
 
 ## Questions
 
