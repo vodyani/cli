@@ -1,3 +1,10 @@
+## [8.2.2](https://github.com/vodyani/cli/compare/v8.2.1...v8.2.2) (2022-09-19)
+
+
+### Bug Fixes
+
+* change site url ([53def3c](https://github.com/vodyani/cli/commit/53def3c52329a33e66b2a189d2f083d2b193449d))
+
 ## [8.2.1](https://github.com/vodyani/cli/compare/v8.2.0...v8.2.1) (2022-09-07)
 
 
