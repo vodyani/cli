@@ -1,3 +1,10 @@
+## [8.3.3](https://github.com/vodyani/cli/compare/v8.3.2...v8.3.3) (2022-09-25)
+
+
+### Bug Fixes
+
+* remove controller post ([1b18439](https://github.com/vodyani/cli/commit/1b18439620d57ca857fefdac742e54e96ff1a9f9))
+
 ## [8.3.2](https://github.com/vodyani/cli/compare/v8.3.1...v8.3.2) (2022-09-25)
 
 
