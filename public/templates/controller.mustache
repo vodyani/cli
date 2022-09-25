@@ -1,5 +1,4 @@
 import { Controller, Get } from '@nestjs/common';
-import { Post } from '@vodyani/core';
 import { ApiTags } from '@vodyani/swagger';
 
 import { ApiResponseVo } from '@/core/decorator';
@@ -10,12 +9,6 @@ export class {{ upperName }}Controller {
   @Get()
   @ApiResponseVo()
   public async get() {
-    return {};
-  }
-
-  @Post()
-  @ApiResponseVo()
-  public async post() {
     return {};
   }
 }
