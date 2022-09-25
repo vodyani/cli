@@ -3,19 +3,16 @@ import { lt } from 'semver';
 import { Command } from 'commander';
 
 import {
-  HelpHandler,
-  ApiGenerator,
+  AppGenerator,
   FileGenerator,
-  DomainGenerator,
-  CreateProjectHandler,
-  InfrastructureGenerator,
+  HelpHandler,
 } from './commands';
 import { Logger } from './base';
 import { color } from './common';
 
 export class Launcher {
   constructor(
-    private readonly suggestNodeVersion = '16.0.0',
+    private readonly suggestNodeVersion = '16.14.0',
     private readonly currentNodeVersion = process.versions.node,
     private readonly cliVersion = require('../package.json').version,
   ) {
@@ -36,38 +33,25 @@ export class Launcher {
 
     program
       .command('help')
-      .description(`❓ ${color.grey('Get Help.')}`)
+      .description(`❓ ${color.cyan('Get Help.')}`)
       .action(HelpHandler.outputUsage);
 
     program
       .command('new')
       .usage('[command]')
-      .description(`🚀 ${color.cyan('Create project.')}`)
-      .action(async () => CreateProjectHandler.download(this.cliVersion));
+      .description(`🚀 ${color.cyan('Generating a new application.')}`)
+      .action(AppGenerator.download);
 
     program
-      .command('a')
+      .command('g <type> [name]')
       .usage('[command]')
-      .description(`🔌 ${color.green('Generate api module.')}`)
-      .action(async () => ApiGenerator.build());
+      .description(`🏭 ${color.cyan('Generates a file of the specified type.')}`)
+      .action(FileGenerator.build);
 
     program
-      .command('d')
-      .usage('[command]')
-      .description(`🌏 ${color.green('Generate domain module.')}`)
-      .action(async () => DomainGenerator.build());
-
-    program
-      .command('i')
-      .usage('[command]')
-      .description(`🏭 ${color.green('Generate infrastructure module.')}`)
-      .action(async () => InfrastructureGenerator.build());
-
-    program
-      .command('f')
-      .usage('[command]')
-      .description(`📚 ${color.green('Generate file on demand.')}`)
-      .action(async () => FileGenerator.build());
+      .command('types')
+      .description(`📚 ${color.green('Get Help for view the types that can be generated.')}`)
+      .action(HelpHandler.outputTypes);
 
     program.parse(process.argv);
   }

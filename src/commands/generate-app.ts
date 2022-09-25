@@ -1,16 +1,14 @@
 import { existsSync } from 'fs';
 
-import { major } from 'semver';
-
 import { shell } from '../common';
 import { Logger, Input } from '../base';
 
 import { HelpHandler } from './help';
 
-export class CreateProjectHandler {
+export class AppGenerator {
   private static readonly docs = 'https://github.com/vodyani/vodyani.git';
 
-  public static async download(version: string) {
+  public static async download() {
     const { name } = await Input.getAnswer([{
       message: 'Enter the name you want to create, if the name has more than one word please use `-` split.',
       name: 'name',
@@ -18,12 +16,22 @@ export class CreateProjectHandler {
       default: 'vodyani',
     }]);
 
-    const vodyaniVersion = `${major(version)}.x`;
+    const { version } = await Input.getAnswer([{
+      message: 'Select the version you want to create',
+      name: 'version',
+      type: 'list',
+      default: '8',
+      choices: [
+        '8',
+      ],
+    }]);
+
+    const vodyaniVersion = `${version}.x`;
 
     Logger.exec(`download ${vodyaniVersion} ...`);
 
     if (!existsSync(`./${name}`)) {
-      shell.exec(`git clone -b ${vodyaniVersion} ${CreateProjectHandler.docs} ${name}`);
+      shell.exec(`git clone -b ${vodyaniVersion} ${AppGenerator.docs} ${name}`);
 
       const { isAllow } = await Input.getAnswer([{
         type: 'list',
