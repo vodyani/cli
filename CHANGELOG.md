@@ -1,3 +1,11 @@
+# [8.3.0](https://github.com/vodyani/cli/compare/v8.2.2...v8.3.0) (2022-09-25)
+
+
+### Features
+
+* optimized file output based on Vodyani's new refactoring ([5fbd7e0](https://github.com/vodyani/cli/commit/5fbd7e00d19e0d3216cd7e8907978e83add4fb45))
+* optimized file output based on Vodyani's new refactoring ([968846f](https://github.com/vodyani/cli/commit/968846fdefbfdf8e51bd29f4b48732041bd01314))
+
 ## [8.2.2](https://github.com/vodyani/cli/compare/v8.2.1...v8.2.2) (2022-09-19)
 
 
