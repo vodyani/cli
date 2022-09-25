@@ -1,3 +1,10 @@
+## [8.3.5](https://github.com/vodyani/cli/compare/v8.3.4...v8.3.5) (2022-09-25)
+
+
+### Bug Fixes
+
+* templates naming ([6b66bb4](https://github.com/vodyani/cli/commit/6b66bb4962bdf00e3219fa30d74bd3d5697c74a1))
+
 ## [8.3.4](https://github.com/vodyani/cli/compare/v8.3.3...v8.3.4) (2022-09-25)
 
 
