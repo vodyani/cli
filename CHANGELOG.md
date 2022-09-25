@@ -1,3 +1,10 @@
+## [8.3.1](https://github.com/vodyani/cli/compare/v8.3.0...v8.3.1) (2022-09-25)
+
+
+### Bug Fixes
+
+* output ([e54a070](https://github.com/vodyani/cli/commit/e54a070a331a28b4b04b0ccf6587fee0f52436ff))
+
 # [8.3.0](https://github.com/vodyani/cli/compare/v8.2.2...v8.3.0) (2022-09-25)
 
 
