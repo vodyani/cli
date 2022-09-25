@@ -1,3 +1,10 @@
+## [8.3.2](https://github.com/vodyani/cli/compare/v8.3.1...v8.3.2) (2022-09-25)
+
+
+### Bug Fixes
+
+* write same name exists and deps ([41f8af2](https://github.com/vodyani/cli/commit/41f8af2ac0c53170c7059b23805de66679ed895a))
+
 ## [8.3.1](https://github.com/vodyani/cli/compare/v8.3.0...v8.3.1) (2022-09-25)
 
 
