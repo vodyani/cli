@@ -1,19 +1,21 @@
+import { Controller, Get } from '@nestjs/common';
+import { Post } from '@vodyani/core';
 import { ApiTags } from '@vodyani/swagger';
-import { Controller, Get } from '@vodyani/core';
 
 import { ApiResponseVo } from '@/core/decorator';
 
 @ApiTags('{{ name }}')
 @Controller('{{ name }}')
 export class {{ upperName }}Controller {
-  constructor(
-    private readonly service: any,
-  ) {}
-
   @Get()
   @ApiResponseVo()
-  public async find() {
-    const result = await this.service.find();
-    return result;
+  public async get() {
+    return {};
+  }
+
+  @Post()
+  @ApiResponseVo()
+  public async post() {
+    return {};
   }
 }
