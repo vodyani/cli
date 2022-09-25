@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 
 import { render } from 'mustache';
 import { upperFirst, camelCase } from 'lodash';
@@ -36,6 +36,10 @@ export class FileGenerator {
     const newFilePath = filePath ? `./${filePath}.ts` : `./${fileName}.ts`;
     const newFileData = render(mustacheData, { name: fileName, upperName });
 
-    writeFileSync(newFilePath, `${newFileData}\n`);
+    if (!existsSync(newFilePath)) {
+      writeFileSync(newFilePath, `${newFileData}\n`);
+    } else {
+      Logger.error('Creation failed: A file with the same name exists in the directory');
+    }
   }
 }

@@ -1,5 +1,6 @@
+import { InjectionToken, OptionalFactoryDependency } from '@nestjs/common';
 import { This } from '@vodyani/class-decorator';
-import { AsyncInjectable, AsyncProvider, AsyncProviderFactory, InjectionToken, OptionalFactoryDependency } from '@nestjs/common';
+import { AsyncInjectable, AsyncProvider, AsyncProviderFactory } from '@vodyani/core';
 
 @AsyncInjectable
 export class {{ upperName }}Manager extends AsyncProvider implements AsyncProviderFactory {
