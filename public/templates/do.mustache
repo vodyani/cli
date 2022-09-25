@@ -2,7 +2,7 @@ import { IsNotEmpty, IsNumber, Expose, IsString, ValidateIf, ValidateNested, Typ
 
 import { PageDo } from '@/core/do';
 
-export class {{ upperName }}Do {
+export class {{ upperName }}DO {
   @Expose()
   @IsNotEmpty() @IsNumber({ allowNaN: false, allowInfinity: false })
   public id: number;

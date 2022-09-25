@@ -2,7 +2,7 @@ import { Expose } from '@vodyani/class-decorator';
 import { ApiProperty, SwaggerEntity } from '@vodyani/swagger';
 
 @SwaggerEntity
-export class {{ upperName }}Vo {
+export class {{ upperName }}VO {
   @Expose()
   @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
   public id: number;
