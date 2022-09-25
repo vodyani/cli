@@ -31,11 +31,10 @@ npm install -g @vodyani/cli
    \ V /   | |_| | | |_| |   | |    / ___ \  | |\  |  | | 
     \_/     \___/  |____/    |_|   /_/   \_\ |_| \_| |___|
                                                           
-  vodyani new  =>  🚀 Create a starter project.
-  vodyani a    =>  🔌 Generate complete api modules in the project.
-  vodyani d    =>  🌏 Generate complete domain modules in the project.
-  vodyani i    =>  🏭 Generate complete infrastructure modules in the project.
-  vodyani f    =>  📚 Generate complete file on demand in the project.
+  vodyani help             ❓ Get Help.
+  vodyani new              🚀 Generating a new application.
+  vodyani g <type> [name]  🏭 Generates a file of the specified type.
+  vodyani types            📚 Get Help for view the types that can be generated.
 ```
 
 - [使用文档 📚](https://vodyani.netlify.app/docs/other/cli)
