@@ -17,7 +17,7 @@ export class FileGenerator {
 
       FileGenerator.write(result.type, name, fileName);
 
-      Logger.success(`${name} created.`);
+      Logger.success(`${fileName} created.`);
     } else {
       Logger.error('Creation failed: non-existent options');
     }
