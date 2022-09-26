@@ -1,3 +1,10 @@
+## [8.3.6](https://github.com/vodyani/cli/compare/v8.3.5...v8.3.6) (2022-09-26)
+
+
+### Bug Fixes
+
+* generate file ([b627fa4](https://github.com/vodyani/cli/commit/b627fa488ba99d6f795c2e9022f5c074c61a05b9))
+
 ## [8.3.5](https://github.com/vodyani/cli/compare/v8.3.4...v8.3.5) (2022-09-25)
 
 
