@@ -14,6 +14,7 @@ export class FileGenerator {
       let fileName = name;
       if (!name) fileName = result.type;
       if (result.type === 'test') fileName += '.spec';
+      if (result.type === 'module') fileName = 'module';
 
       FileGenerator.write(result.type, name, fileName);
 
