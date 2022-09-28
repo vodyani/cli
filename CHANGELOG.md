@@ -1,3 +1,10 @@
+## [8.3.7](https://github.com/vodyani/cli/compare/v8.3.6...v8.3.7) (2022-09-28)
+
+
+### Bug Fixes
+
+* module generate flow 🐛 ([6f505cb](https://github.com/vodyani/cli/commit/6f505cb2d1bde5d8859b2f35ed8c17827387e376))
+
 ## [8.3.6](https://github.com/vodyani/cli/compare/v8.3.5...v8.3.6) (2022-09-26)
 
 
