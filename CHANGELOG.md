@@ -1,3 +1,10 @@
+## [8.3.8](https://github.com/vodyani/cli/compare/v8.3.7...v8.3.8) (2022-10-16)
+
+
+### Bug Fixes
+
+* async manager provider ([c4bab3f](https://github.com/vodyani/cli/commit/c4bab3f5d53894182582daebf3b8f3d49c86ece4))
+
 ## [8.3.7](https://github.com/vodyani/cli/compare/v8.3.6...v8.3.7) (2022-09-28)
 
 
