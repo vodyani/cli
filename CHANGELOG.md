@@ -1,3 +1,10 @@
+# [8.5.0](https://github.com/vodyani/cli/compare/v8.4.1...v8.5.0) (2022-10-18)
+
+
+### Features
+
+* support swagger version 🌈 ([4247196](https://github.com/vodyani/cli/commit/4247196c10a9fc07f821fdf5c49b4efabf6e512c))
+
 ## [8.4.1](https://github.com/vodyani/cli/compare/v8.4.0...v8.4.1) (2022-10-18)
 
 
