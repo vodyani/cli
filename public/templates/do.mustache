@@ -1,49 +1,9 @@
-import { IsNotEmpty, IsNumber, Expose, IsString, ValidateIf, ValidateNested, Type } from '@vodyani/class-decorator';
-
-import { PageDo } from '@/core/do';
+import { Expose } from '@vodyani/class-decorator';
 
 export class {{ upperName }}DO {
   @Expose()
-  @IsNotEmpty() @IsNumber({ allowNaN: false, allowInfinity: false })
   public id: number;
 
   @Expose()
-  @IsNotEmpty() @IsString()
   public name: string;
-}
-
-export class Find{{ upperName }}Do {
-  @Expose()
-  @ValidateIf(it => it.id) @IsNumber({ allowNaN: false, allowInfinity: false })
-  public id?: number;
-
-  @Expose()
-  @ValidateIf(it => it.name) @IsString()
-  public name?: string;
-}
-
-export class Create{{ upperName }}Do {
-  @Expose()
-  @IsNotEmpty() @IsString()
-  public name: string;
-}
-
-export class Update{{ upperName }}Do {
-  @Expose()
-  @ValidateIf(it => it.id) @IsNumber({ allowNaN: false, allowInfinity: false })
-  public id?: number;
-
-  @Expose()
-  @ValidateIf(it => it.name) @IsString()
-  public name?: string;
-}
-
-export class Pagination{{ upperName }}Do {
-  @Expose() @Type(() => {{ upperName }}Do)
-  @ValidateNested({ each: true })
-  public rows: {{ upperName }}Do[];
-
-  @Expose() @Type(() => PageDo)
-  @ValidateNested()
-  public page: PageDo;
 }

@@ -1,43 +1,9 @@
 import { Expose } from '@vodyani/class-decorator';
 
-import { PaginationQueryDto } from '@/core/dto';
-
 export class {{ upperName }}DTO {
   @Expose()
   public id: number;
 
   @Expose()
   public name: string;
-}
-
-export class Find{{ upperName }}Dto {
-  @Expose()
-  public id?: number;
-
-  @Expose()
-  public name?: string;
-}
-
-export class Create{{ upperName }}Dto {
-  @Expose()
-  public id?: number;
-
-  @Expose()
-  public name: string;
-}
-
-export class Update{{ upperName }}Dto {
-  @Expose()
-  public id?: number;
-
-  @Expose()
-  public name?: string;
-}
-
-export class Pagination{{ upperName }}Dto extends PaginationQueryDto {
-  @Expose()
-  public id?: number;
-
-  @Expose()
-  public name?: string;
 }
