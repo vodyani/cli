@@ -1,3 +1,10 @@
+## [8.4.1](https://github.com/vodyani/cli/compare/v8.4.0...v8.4.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* do dto vo build rule fix ([bbffbde](https://github.com/vodyani/cli/commit/bbffbde9312675a8a920a63b84aea8220383b7d5))
+
 # [8.4.0](https://github.com/vodyani/cli/compare/v8.3.8...v8.4.0) (2022-10-18)
 
 
