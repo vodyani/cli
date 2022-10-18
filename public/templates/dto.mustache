@@ -1,54 +1,43 @@
 import { Expose } from '@vodyani/class-decorator';
-import { ApiProperty } from '@vodyani/swagger';
 
 import { PaginationQueryDto } from '@/core/dto';
 
 export class {{ upperName }}DTO {
   @Expose()
-  @ApiProperty({ name: 'id', type: Number, required: true, example: 'id', description: 'id' })
   public id: number;
 
   @Expose()
-  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
   public name: string;
 }
 
 export class Find{{ upperName }}Dto {
   @Expose()
-  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
   @Expose()
-  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
   public name?: string;
 }
 
 export class Create{{ upperName }}Dto {
   @Expose()
-  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
   @Expose()
-  @ApiProperty({ name: 'name', type: String, required: true, example: 'name', description: 'name' })
   public name: string;
 }
 
 export class Update{{ upperName }}Dto {
   @Expose()
-  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
   @Expose()
-  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
   public name?: string;
 }
 
 export class Pagination{{ upperName }}Dto extends PaginationQueryDto {
   @Expose()
-  @ApiProperty({ name: 'id', type: Number, required: false, example: 'id', description: 'id' })
   public id?: number;
 
   @Expose()
-  @ApiProperty({ name: 'name', type: String, required: false, example: 'name', description: 'name' })
   public name?: string;
 }
