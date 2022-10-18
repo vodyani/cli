@@ -1,3 +1,10 @@
+# [8.4.0](https://github.com/vodyani/cli/compare/v8.3.8...v8.4.0) (2022-10-18)
+
+
+### Features
+
+* remove the swagger dependencies ([629e61e](https://github.com/vodyani/cli/commit/629e61efc96d92f53098341515055fe58c2b7162))
+
 ## [8.3.8](https://github.com/vodyani/cli/compare/v8.3.7...v8.3.8) (2022-10-16)
 
 
