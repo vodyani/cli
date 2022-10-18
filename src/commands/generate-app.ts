@@ -16,19 +16,22 @@ export class AppGenerator {
       default: 'vodyani',
     }]);
 
+    const branchDict = Object({
+      'http v8.x': '8.x',
+      'http v8.x (with swagger)': '8/with-swagger',
+    });
+
     const { version } = await Input.getAnswer([{
       message: 'Select the version you want to create',
+      default: Object.keys(branchDict)[0],
+      choices: Object.keys(branchDict),
       name: 'version',
       type: 'list',
-      default: '8',
-      choices: [
-        '8',
-      ],
     }]);
 
-    const vodyaniVersion = `${version}.x`;
+    const vodyaniVersion = branchDict[version];
 
-    Logger.exec(`download ${vodyaniVersion} ...`);
+    Logger.exec(`download from vodyani ${vodyaniVersion} ...`);
 
     if (!existsSync(`./${name}`)) {
       shell.exec(`git clone -b ${vodyaniVersion} ${AppGenerator.docs} ${name}`);
