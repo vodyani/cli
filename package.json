@@ -67,7 +67,7 @@
     "@types/jest": "27.5.2",
     "@types/lodash": "^4.14.181",
     "@types/mustache": "^4.1.2",
-    "@types/node": "16.11.56",
+    "@types/node": "16.18.114",
     "@types/semver": "^7.3.9",
     "@types/shelljs": "^0.8.11",
     "@vodyani/eslint-config": "^1.1.0",
